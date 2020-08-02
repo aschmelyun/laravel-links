@@ -16,14 +16,10 @@ class UserController extends Controller
         ]);
     }
 
-    public function edit(User $user)
+    public function edit()
     {
-        if ($user->id !== Auth::id()) {
-            return abort(404);
-        }
-
         return view('users.edit', [
-            'user' => $user
+            'user' => Auth::user()
         ]);
     }
 
