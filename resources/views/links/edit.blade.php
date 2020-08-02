@@ -15,8 +15,8 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    <label for="name">URL</label>
-                                    <input type="text" id="url" name="url" class="form-control" placeholder="https://youtube.com/user/aschmelyun" value="{{ $link->url }}">
+                                    <label for="name">Link URL</label>
+                                    <input type="text" id="link" name="link" class="form-control" placeholder="https://youtube.com/user/aschmelyun" value="{{ $link->link }}">
                                 </div>
                             </div>
                         </div>

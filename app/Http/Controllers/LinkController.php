@@ -12,7 +12,7 @@ class LinkController extends Controller
     public function index()
     {
         $links = Auth::user()->links()
-            ->with('visits')
+            ->with('latestVisit')
             ->withCount('visits')
             ->get();
 
@@ -28,7 +28,19 @@ class LinkController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'link' => 'required|url'
+        ]);
 
+        $link = Auth::user()->links()
+            ->create($request->only(['name', 'link']));
+
+        if ($link) {
+            return redirect()->to('/dashboard/links');
+        }
+
+        return redirect()->back();
     }
 
     public function edit(Link $link)
@@ -44,7 +56,13 @@ class LinkController extends Controller
 
     public function update(Link $link, Request $request)
     {
+        if ($link->user_id !== Auth::id()) {
+            return abort(403);
+        }
 
+        $link->update($request->only(['name', 'link']));
+
+        return redirect()->to('/dashboard/links');
     }
 
     public function destroy(Link $link, Request $request)

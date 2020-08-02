@@ -19,9 +19,9 @@
                             @foreach($links as $link)
                                 <tr>
                                     <td>{{ $link->name }}</td>
-                                    <td>{{ $link->url }}</td>
-                                    <td>{{ $link->visitsCount }}</td>
-                                    <td>{{ $link->lastVisit }}</td>
+                                    <td><a href="{{ $link->link }}">{{ $link->link }}</a></td>
+                                    <td>{{ $link->visits_count }}</td>
+                                    <td>{{ $link->latest_visit ? $link->latest_visit->created->format('M/d/Y H:i a') : 'N/A' }}</td>
                                     <td><a href="/dashboard/links/{{ $link->id }}">Edit</a></td>
                                 </tr>
                             @endforeach
