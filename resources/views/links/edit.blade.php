@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-12 card">
                 <div class="card-body">
-                    <h2 class="card-title">Welcome to Laravel Links!</h2>
-                    <p class="card-text">To get started, sign in to your account or register for a new one.</p>
+                    <h2 class="card-title">Editing link</h2>
                 </div>
             </div>
         </div>
