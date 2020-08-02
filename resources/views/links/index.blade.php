@@ -7,32 +7,24 @@
                     <h2 class="card-title">Your links</h2>
                     <table class="table table-striped">
                         <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                        </tr>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Url</th>
+                                <th scope="col">Visits</th>
+                                <th scope="col">Last Visit</th>
+                                <th scope="col">Actions</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                            @foreach($links as $link)
+                                <tr>
+                                    <td>{{ $link->name }}</td>
+                                    <td>{{ $link->url }}</td>
+                                    <td>{{ $link->visitsCount }}</td>
+                                    <td>{{ $link->lastVisit }}</td>
+                                    <td><a href="/dashboard/links/{{ $link->id }}">Edit</a></td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     <a href="/dashboard/links/new" class="btn btn-primary">Add Link</a>
