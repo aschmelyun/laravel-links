@@ -18,6 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('username')->unique();
             $table->string('password');
+            $table->string('background_color')->default('#ffffff');
+            $table->string('text_color')->default('#000000');
             $table->rememberToken();
             $table->timestamps();
         });
