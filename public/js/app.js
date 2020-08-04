@@ -37277,7 +37277,9 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 $('.user-link').click(function (e) {
-  axios.post('/visit/' + $(this).data('link-id')).then(function (response) {
+  axios.post('/visit/' + $(this).data('link-id'), {
+    link: $(this).attr('href')
+  }).then(function (response) {
     return console.log('response: ', response);
   })["catch"](function (error) {
     return console.error('error: ', error);
