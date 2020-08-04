@@ -6,11 +6,12 @@
                 @foreach($user->links as $link)
                     <div class="link">
                         <a
-                            class="d-block p-4 mb-4 rounded h3 text-center"
+                            class="user-link d-block p-4 mb-4 rounded h3 text-center"
                             style="border: 2px solid {{ $textColor }}; color: {{ $textColor }}"
                             href="{{ $link->link }}"
                             target="_blank"
                             rel="nofollow"
+                            data-link-id="{{ $link->id }}"
                         >{{ $link->name }}</a>
                     </div>
                 @endforeach
