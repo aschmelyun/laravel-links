@@ -11,8 +11,15 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        $backgroundColor = $user->background_color;
+        $textColor = $user->text_color;
+
+        $user->load('links');
+
         return view('users.show', [
-            'user' => $user
+            'user' => $user,
+            'backgroundColor' => $backgroundColor,
+            'textColor' => $textColor
         ]);
     }
 
