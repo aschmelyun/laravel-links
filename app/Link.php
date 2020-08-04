@@ -19,7 +19,7 @@ class Link extends Model
         return $this->hasMany(Visit::class);
     }
 
-    public function latestVisit()
+    public function latest_visit()
     {
         return $this->hasOne(Visit::class)->latest();
     }
