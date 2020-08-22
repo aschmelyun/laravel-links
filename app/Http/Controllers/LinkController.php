@@ -60,6 +60,11 @@ class LinkController extends Controller
             return abort(403);
         }
 
+        $request->validate([
+            'name' => 'required',
+            'link' => 'required|url'
+        ]);
+
         $link->update($request->only(['name', 'link']));
 
         return redirect()->to('/dashboard/links');
